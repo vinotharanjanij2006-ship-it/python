@@ -1,0 +1,71 @@
+
+todo_list=[]
+#function to add a new task
+def add_task():
+    task=input("Enter a task:")
+    todo_list.append({"Task":task,"Stutas":"pending"})
+    print("New task Added successfully!\n")
+#function to view a task
+def view_task():
+    print("your todo list:")
+    if len(todo_list)==0:
+        print("No pending task!")
+    else:
+        for index,task in enumerate(todo_list, ):
+            print(f"{index}:{task['Task']} . {task['Status']}")
+            print("\n")
+# function a task to remove
+def remove_task():
+    if len(todo_list)==0:
+        print("list is Empty!")
+    else:
+        try:
+            search_index=int(input("Enter the task number that you want to remove: "))  
+            if 0<=search_index < len(todo_list):
+                remove_task=todo_list . pop(search_index)
+                print(f"Task removed: {removed_task['Task']}")
+            else:
+                print("Invalid task Number:")
+        except ValueError:
+            print("Please Enter a valid Task Number.")
+#function to mark a task as completed
+def mark_task():
+    if len(todo_list)==0:
+        print("list is empty!")
+    else:
+        try:
+            search_index=int(input("Enter the task number that you want to mark completed:"))
+            if 0<=search_index < len(todo_list):
+            todo_list[search_index]['status']=mark_task
+            print(f"Task{todo_list[search_index]}['Task'] has been marked as Done:")
+            else:
+                print("Invalid task Number:")
+        except ValueError:
+            print("Please Enter a valid Task Number:")
+
+
+
+def menu():
+    print("***Main Menu***")
+    print("1.Add a new Task")
+    print("2.View All Tasks")
+    print("3.Remove a Task")
+    print("4.Mark a Task as completed")
+    print("5.Exit")
+
+    choice=input("Enter your choice:")
+    if choice=="1":
+        add_task()
+    elif choice=="2":
+         view_task()
+    elif choice=="3":
+         remove_task()
+    elif choice=="4":
+         mark_task()
+    elif choice=="5":
+         print("Exiting the application...")
+         exit()
+    else:
+        print("Invalid choice!Try again!!!")
+
+menu()
